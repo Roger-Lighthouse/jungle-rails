@@ -8,4 +8,8 @@ class ProductsController < ApplicationController
     @product = Product.find params[:id]
   end
 
+  def hello
+    render html: 'Hello World!!'
+  end
+
 end
