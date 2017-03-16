@@ -5,6 +5,7 @@ class OrdersController < ApplicationController
     @lis = @order.line_items
 
     @ok = 'test'
+    UserMailer.order_receipt(@order).deliver_now
   end
 
   def create
@@ -56,6 +57,7 @@ class OrdersController < ApplicationController
       end
     end
     order.save!
+    UserMailer.order_receipt(order).deliver_now
     order
   end
 

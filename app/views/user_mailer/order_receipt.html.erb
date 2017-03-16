@@ -1,0 +1,18 @@
+===============================================
+
+Hi there,
+
+<b>Here is the summary of your recent purchase</b>
+
+<table>
+  <tr>
+    <%@lis.each do |li|%>
+      <td><%=li.product.name%></td>
+      <td><%=li.product.description%></td>
+      <td><%=li.quantity%></td>
+      <td><%=li.product.price%></td>
+     <%end%>
+  </tr>
+</table><br/>
+
+Thanks for orering with us!!
