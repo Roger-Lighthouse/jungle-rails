@@ -1,0 +1,43 @@
+
+
+<section class="admin-products-new">
+
+  <header class="page-header">
+    <h1>Admin &raquo; New Category</h1>
+  </header>
+
+  <div class="well">
+    <%= link_to 'Back To All Products', [:admin, :products], class: 'btn btn-info' %><br/>
+  </div>
+
+
+  <div class="well">
+    <h2>Admin &raquo; Current Categories</h2>
+    <%@cats.each do |c|%>
+      <div class="form-group">
+        <%= c.name %>
+      </div>
+    <%end%>
+  </div>
+
+
+  <div class="well">
+      <%= form_for [:admin, @category] do |form| %>
+        <% if form.object.errors.any? %>
+          <div class="alert alert-danger">
+            <strong>The following errors prevented saving:</strong>
+            <ul>
+              <% form.object.errors.full_messages.each do |error| %>
+                <li><%= error %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div class="form-group">
+          <%= form.text_field :name, class: 'form-control' %>
+          <%= form.submit 'Create Category', class: 'btn btn-primary' %>
+        </div>
+       <% end %>
+  </div>
+
+</section>
