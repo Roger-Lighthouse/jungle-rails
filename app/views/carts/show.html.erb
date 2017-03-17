@@ -4,6 +4,13 @@
     <h1>My Cart</h1>
   </header>
 
+  <span>
+    <%if cart.empty?%>
+      <h3>Your Fucking Cart Is Empty!!</h3>
+      <%= link_to 'Home', :root%>
+    <%end%>
+  </span>
+
   <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>

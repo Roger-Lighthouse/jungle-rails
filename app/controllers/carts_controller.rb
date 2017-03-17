@@ -1,6 +1,10 @@
 class CartsController < ApplicationController
 
   def show
+ #   puts 'FUCKKKKKKKKKKK!!!!!!!!!!!!!!!!'
+ #   if cart.empty?
+ #     redirect_to products_path(:mess => 'Cart Is Fucking Empty!!')
+ #   end
   end
 
   def add_item

@@ -4,6 +4,12 @@
     <h1>Products</h1>
   </header>
 
+  <div>
+    <%if !@mess.nil? %>
+      <h2><%=@mess%></h2>
+    <%end%>
+  </div>
+
   <div class="products">
     <%= render @products %>
   </div>
