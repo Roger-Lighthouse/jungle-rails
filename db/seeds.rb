@@ -21,6 +21,7 @@ end
 
 # Let's do this ...
 
+
 ## CATEGORIES
 
 puts "Finding or Creating Categories ..."
@@ -132,5 +133,36 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+#session[:user_id] = nil
+# user = User.new
+# user.create({
+#   name: 'roger'
+#   email: 'roger@whiteshark.ca'
+#   password_digest
+#   })
+
+## Products
+
+prod1 = Product.find 1
+prod2 = Product.find 3
+prod3 = Product.find 5
+prod4 = Product.find 7
+
+## Create Reviews
+
+prods=[prod1, prod2, prod3,prod4]
+
+prods.each do |prod|
+  count = 0
+  while count < 5 do
+    prod.reviews.create!({
+      user_id: 1,
+      product_id: prod1.id,
+      description: Faker::Lorem.sentence,
+      rating: Faker::Number.between(1, 5)
+    })
+    count += 1
+  end
+end
 
 puts "DONE!"

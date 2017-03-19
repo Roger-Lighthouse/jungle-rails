@@ -12,12 +12,18 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
 
+  # post '/products/:product_id/reviews' => 'reviews#create'
 
 
 
 
-  resources :products, only: [:index, :show]
+
+  resources :products, only: [:index, :show] do
+    resources :reviews, only: [:create]
+  end
+
   resources :categories, only: [:show]
+
 
   resource :cart, only: [:show] do
     put    :add_item
@@ -56,6 +62,16 @@ Rails.application.routes.draw do
         get 'hello'
       end
     end
+
+   resources :reviews do
+      member do
+        get 'delete'
+      end
+
+      collection do
+      end
+    end
+
 
   # Example resource route with sub-resources:
   #   resources :products do

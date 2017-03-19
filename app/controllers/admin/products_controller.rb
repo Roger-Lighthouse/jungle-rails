@@ -4,8 +4,6 @@ class Admin::ProductsController < ApplicationController
 
 
   def index
-    @mess = params[:mess]
-    puts 'MESSSSSS ' +@mess
     @products = Product.order(id: :desc).all
   end
 
