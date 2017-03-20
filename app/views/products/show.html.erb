@@ -28,7 +28,8 @@
               <dt>Review[rating]</dt>
               <dd><%= rev.description %>[<%=rev.rating%>]
               <% if current_user && (rev.user_id == current_user.id) %>
-                <%=link_to '>>Delete<<', delete_review_path(:id=>rev.id)%>
+              reviews#destroy
+                <%=link_to '>>Delete<<', product_review_path(@product, rev), :method=> :delete %>
               <%end%>
               </dd>
             </div>

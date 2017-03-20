@@ -1,6 +1,5 @@
 class ReviewsController < ApplicationController
 
-
   before_action :require_login
 
   def create
@@ -11,19 +10,23 @@ class ReviewsController < ApplicationController
     review.save!
     redirect_to products_path(:id => review.product_id)
   end
+#(:id=>rev.id)
 
-  def delete
+
+  def destroy
     id = params[:id]
     rev = Review.find(id)
     rev.destroy!
     redirect_to products_path
   end
 
+
   private
 
   def review_params
     params.require(:review).permit(:description, :rating, :user_id, :product_id)
   end
+
 
   def require_login
     unless current_user

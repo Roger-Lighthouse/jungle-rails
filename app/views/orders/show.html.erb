@@ -2,6 +2,10 @@
 
   <header class="page-header">
     <h1>Your Order</h1>
+    <%if current_user%>
+      <br/><h3/>***Receipt was emailed to <%=current_user.email%>***</h3>
+    <%end%>
+
   </header>
 
 <div class="panel panel-default items">

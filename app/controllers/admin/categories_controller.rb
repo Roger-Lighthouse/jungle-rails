@@ -2,10 +2,12 @@ class Admin::CategoriesController < ApplicationController
 
   http_basic_authenticate_with name: ENV['ADMIN_USERNAME'] , password: ENV['ADMIN_PASSWORD']
 
+
   def index
     @cats = Category.all
     @category = Category.new
   end
+
 
   def create
     @cats = Category.all
@@ -16,8 +18,6 @@ class Admin::CategoriesController < ApplicationController
       render :new
     end
   end
-
-
 
 
   def category_params

@@ -20,6 +20,26 @@
     <aside class="sold_out">
       Sold Out
     </aside>
+  <%else
+   prod_review = 'n/a'
+   revs = product.reviews
+   total = 0
+   number = 0
+   if revs.size > 0
+     revs.each do |r|
+       number += 1
+       total += r.rating
+     end
+     prod_review = (total.to_f / number)
+     #prod_review = ((prod_review * 100).round)/100
+     prod_review = prod_review.round(1)
+   end
+
+  %>
+    <aside class="sold_out">
+      Rate <%=prod_review%>
+    </aside>
+
   <%end%>
 
   <aside class="price">

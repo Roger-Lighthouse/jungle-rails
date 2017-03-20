@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
 
   resources :products, only: [:index, :show] do
-    resources :reviews, only: [:create]
+    resources :reviews, only: [:create, :destroy]
   end
 
   resources :categories, only: [:show]
@@ -63,14 +63,14 @@ Rails.application.routes.draw do
       end
     end
 
-   resources :reviews do
-      member do
-        get 'delete'
-      end
+   # resources :reviews do
+      # member do
+      #   get 'delete'
+      # end
 
-      collection do
-      end
-    end
+     # collection do
+     # end
+    #ßend
 
 
   # Example resource route with sub-resources:
