@@ -11,7 +11,8 @@ RSpec.describe Product, type: :model do
       @product.price=10
       @product.category_id=1
       @product.quantity=2
-      expect(@product.name).to be_present
+      @product.save
+      expect(@product.id).to be_present
     end
 
     it 'should not exist for new records' do
