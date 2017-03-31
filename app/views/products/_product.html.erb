@@ -22,7 +22,8 @@
     <aside class="sold_out">
       Sold Out
     </aside>
-  <%else
+  <%end%>
+<%
    prod_review = 'n/a'
    revs = product.reviews
    total = 0
@@ -36,15 +37,11 @@
      #prod_review = ((prod_review * 100).round)/100
      prod_review = prod_review.round(1)
    end
-
-  %>
-    <aside class="sold_out">
-      Rate <%=prod_review%>
-    </aside>
-
-  <%end%>
+%>
 
   <aside class="price">
-    <%= humanized_money_with_symbol product.price %>
+    <%= humanized_money_with_symbol product.price %><br/>
+    Rate <%=prod_review%>
+
   </aside>
 </article>
